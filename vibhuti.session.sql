@@ -48,6 +48,29 @@ DELETE from student_demo
 where student_id=5;
 
 --Queries
+--every column
+SELECT * FROM student_demo;
+
+SELECT student_name
+FROM student_demo
+ORDER BY student_name;
+
+
+SELECT major
+FROM student_demo
+ORDER BY major DESC;
+
+SELECT *
+FROM student_demo
+LIMIT 2;
+
+-- Where operators <, >, <=, >=, =, <>, AND, OR
+--NOT operator <>
+
+SELECT *
+FROM student_demo
+WHERE student_name IN("Jack","Claire") AND student_id>2;
+
 
 
 
