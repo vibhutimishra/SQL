@@ -1,4 +1,4 @@
-/*
+/*  
 Data TYPES
 
 INT
@@ -15,18 +15,42 @@ DATE
 TIMESTAMP
 
 */
-
-/*
-
-creating TABLE
-CREATE TABLE student (
+-- creating TABLE
+CREATE TABLE student_demo (
     student_id INT PRIMARY KEY,
     student_name VARCHAR(20),
     major VARCHAR(20)
 );
 
-*/
-DESCRIBE student;
+-- describes student_demo schema
+DESCRIBE student_demo;
+
+-- shows data from table
+Select * From student_demo;
+
+--inserting values
+INSERT INTO student_demo VALUES(1,"Jack","Biology");
+INSERT INTO student_demo VALUES(2,"Kate","Sociology");
+INSERT INTO student_demo(student_id,student_name) VALUES(3,"Claire");
+INSERT INTO student_demo VALUES(4,"Jack","Biology");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
