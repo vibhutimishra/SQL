@@ -61,3 +61,60 @@ GROUP BY sex;
 SELECT SUM(total_sales), emp_id
 FROM works_with
 GROUP BY emp_id;
+
+--wildcards(way of defining certain pattern)
+-- % any number of characters, _ one charcter
+-- find any client who are an LLC
+SELECT *
+FROM client
+WHERE client_name LIKE '%LLC';
+
+--branch suppliers who are in label business
+SELECT * FROM branch_supplier;
+
+SELECT *
+FROM branch_supplier
+WHERE supplier_name LIKE "% Label%";
+
+--any employee born in october
+SELECT *
+FROM employee
+WHERE birth_day LIKE "%10%";
+
+--Union 
+--list of employee and branch names
+SELECT first_name
+FROM employee
+UNION
+SELECT branch_name
+FROM branch;
+
+
+--joins(combines tow row based on related table)
+
+-- Add the extra branch
+INSERT INTO branch VALUES(4, "Buffalo", NULL, NULL);
+
+SELECT employee.emp_id, employee.first_name, branch.branch_name
+FROM employee 
+JOIN branch    -- LEFT JOIN, RIGHT JOIN
+ON employee.emp_id = branch.mgr_id;
+
+--left table is employee
+
+SELECT first_name,last_name
+FROM employee 
+WHERE emp_id IN(
+    SELECT emp_id
+    FROM works_with
+    WHERE total_sales > 30000
+);
+
+--all the clients who are handled by the branch
+-- that michael manages
+--we know michals ID
+SELECT client.client_id, client.client_name
+FROM client
+WHERE client.branch_id = (SELECT branch.branch_id
+                          FROM branch
+                          WHERE branch.mgr_id = 102);
